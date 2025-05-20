@@ -1,11 +1,11 @@
-
+import Jobs from '../Jobs/Jobs'
 
 const Home = () => {
     return (
         <div>
-            {/* this is home  */}
+            <Jobs />
         </div>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home

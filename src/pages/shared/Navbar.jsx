@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { NavbarMenu } from '../data/navData'
-import { AnimatePresence } from 'motion/react'
+import { AnimatePresence,motion } from 'motion/react'
 
 import logo from '../../assets/images/pngegg.png'
 import { Link } from 'react-router-dom'
