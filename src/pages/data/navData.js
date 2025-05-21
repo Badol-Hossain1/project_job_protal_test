@@ -16,8 +16,8 @@ export const NavbarMenu = [
     },
     {
         id: 4,
-        title: 'Projects',
-        link: '#',
+        title: 'AddJobs',
+        link: '/addJob',
     },
     {
         id: 5,

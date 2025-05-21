@@ -16,28 +16,28 @@ const Jobs = () => {
         <div className="grid relative md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
             {visibleJobs.map((job) => {
                 return (
-                    <div className="card text-black  w-full bg-amber-50 shadow-sm">
+                    <div className="card text-black  w-full bg-gray-700 shadow-sm">
                         <div className="flex justify-around items-center font-bold w-full ">
                             <img src={`${job.company_logo}`} alt="Shoes" />
-                            <span>{job.jobType}</span>
+                            <span className='text-white'>{job.jobType}</span>
                         </div>
                         <div className="card-body">
-                            <h2 className="card-title">{job.title}</h2>
-                            <p>{job.location}</p>
+                            <h2 className="card-title text-white">{job.title}</h2>
+                            <p className='text-white'>{job.location}</p>
                             <div className="flex md:flex-row flex-col">
                                 {job.requirements.map((requirement) => {
                                     return (
-                                        <li className="border py-2 px-3 bg-gray-500 text-white list-none">
+                                        <li className="border py-2 px-3 bg-green-300 text-black rounded-3xl hover:bg-green-400 list-none">
                                             {requirement}
                                         </li>
                                     )
                                 })}
                             </div>
-                            <div className="card-actions justify-between">
-                                {job.salaryRange.min && job.salaryRange.max && (
+                            <div className="card-actions text-white justify-between">
+                                {job?.salaryRange.min && job?.salaryRange.max && (
                                     <span>
-                                        Salary: ${job.salaryRange.min} - $
-                                        {job.salaryRange.max}
+                                        Salary: ${job?.salaryRange.min} - $
+                                        {job?.salaryRange.max}
                                     </span>
                                 )}
                                 <Link
