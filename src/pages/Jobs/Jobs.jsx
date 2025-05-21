@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Jobs = () => {
     const [jobs, setJobs] = useState([])
+
     const [showAll, setShowAll] = useState(false)
 
     const visibleJobs = showAll ? jobs : jobs.slice(0, 9)
@@ -18,12 +19,15 @@ const Jobs = () => {
                 return (
                     <div className="card text-black  w-full bg-gray-700 shadow-sm">
                         <div className="flex justify-around items-center font-bold w-full ">
-                            <img src={`${job.company_logo}`} alt="Shoes" />
-                            <span className='text-white'>{job.jobType}</span>
+                            <span className='text-white'>{job.applicationDeadline}</span>
+                            <img className='w-20' src={`${job.company_logo}`} alt="Shoes" />
+                            <span className="text-white">{job.jobType}</span>
                         </div>
                         <div className="card-body">
-                            <h2 className="card-title text-white">{job.title}</h2>
-                            <p className='text-white'>{job.location}</p>
+                            <h2 className="card-title text-white">
+                                {job.title}
+                            </h2>
+                            <p className="text-white">{job.location}</p>
                             <div className="flex md:flex-row flex-col">
                                 {job.requirements.map((requirement) => {
                                     return (
@@ -34,12 +38,13 @@ const Jobs = () => {
                                 })}
                             </div>
                             <div className="card-actions text-white justify-between">
-                                {job?.salaryRange.min && job?.salaryRange.max && (
-                                    <span>
-                                        Salary: ${job?.salaryRange.min} - $
-                                        {job?.salaryRange.max}
-                                    </span>
-                                )}
+                                {job?.salaryRange.min &&
+                                    job?.salaryRange.max && (
+                                        <span>
+                                            Salary: ${job?.salaryRange.min} - $
+                                            {job?.salaryRange.max}
+                                        </span>
+                                    )}
                                 <Link
                                     to={`/jobs/${job._id}`}
                                     className="btn btn-primary"
@@ -51,16 +56,16 @@ const Jobs = () => {
                     </div>
                 )
             })}
-           <div className='absolute bottom-[-46px] right-0 '>
-             {!showAll && jobs.length > 9 && (
-                <button
-                    onClick={() => setShowAll(true)}
-                    className="mt-4 w-30 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
-                    See More
-                </button>
-            )}
-           </div>
+            <div className="absolute bottom-[-46px] right-0 ">
+                {!showAll && jobs.length > 9 && (
+                    <button
+                        onClick={() => setShowAll(true)}
+                        className="mt-4 w-30 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                        See More
+                    </button>
+                )}
+            </div>
         </div>
     )
 }

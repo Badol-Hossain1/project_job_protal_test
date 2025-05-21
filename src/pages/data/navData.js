@@ -21,8 +21,8 @@ export const NavbarMenu = [
     },
     {
         id: 5,
-        title: 'Faq',
-        link: '#',
+        title: 'MyPost',
+        link: '/myPost',
     },
     {
         id: 6,

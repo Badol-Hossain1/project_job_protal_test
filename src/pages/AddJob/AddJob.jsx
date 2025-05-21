@@ -44,18 +44,15 @@ const AddJob = () => {
                         />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
-                        <label
-                            class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
-                            for="grid-last-name"
-                        >
-                            jobType
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-gray-700 text-white border-none border-none-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-black focus:border-none-gray-500"
-                            name="jobType"
-                            type="text"
-                            placeholder="Doe"
-                        />
+                       <select
+                                class="block appearance-none w-full bg-gray-700 border-none border-none-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-black focus:border-none-gray-500"
+                                id="grid-state"
+                                name="jobType"
+                            >
+                                <option>remote</option>
+                                <option>onsite</option>
+                                <option>hybrid</option>
+                            </select>
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label
@@ -132,7 +129,7 @@ const AddJob = () => {
                             class="appearance-none block w-full bg-gray-700 text-white border-none border-none-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-black focus:border-none-gray-500"
                             id="grid-password"
                             type="url"
-                            name="logo"
+                            name="company_logo"
                             placeholder=" company_logo"
                         />
                     </div>
@@ -208,6 +205,19 @@ const AddJob = () => {
                         />
                     </div>
                 </div>
+                 <label
+                            class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
+                            for=""
+                        >
+                           applicationDeadline
+                        </label>
+                        <input
+                            class="appearance-none block w-full bg-gray-700 text-white border-none border-none-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-black focus:border-none-gray-500"
+                            id="grid-password"
+                            type="date"
+                            name="applicationDeadline"
+                            placeholder=" applicationDeadline"
+                        />
                 <button
                     className="bg-blue-500 py-2 cursor-pointer px-3 rounded-2xl"
                     type="submit"
