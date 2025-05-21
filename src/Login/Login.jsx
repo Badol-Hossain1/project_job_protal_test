@@ -2,10 +2,13 @@ import Lottie from 'lottie-react'
 import logo from '../assets/images/logo.json'
 import { useContext } from 'react'
 import { AuthContext } from '../auth/AuthProvider'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const { Login } = useContext(AuthContext)
+    const location = useLocation()
+    const form = location?.state || '/'
+    const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
         const data = new FormData(e.target)
@@ -16,6 +19,7 @@ const Login = () => {
         Login(name, password)
             .then((res) => {
                 console.log(res)
+                navigate(form)
             })
             .catch((err) => {
                 console.log(err)

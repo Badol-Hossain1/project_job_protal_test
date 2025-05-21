@@ -36,7 +36,7 @@ const Jobs = () => {
                                         <span>Salary: ${job.salaryRange.min}  -  ${job.salaryRange.max}</span>
                                     )
                                 }
-                                <Link to={job._id} className="btn btn-primary">
+                                <Link to={`/jobs/${job._id}`}  className="btn btn-primary">
                                     Apply Now
                                 </Link>
                             </div>
