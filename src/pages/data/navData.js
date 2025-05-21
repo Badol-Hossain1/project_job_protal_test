@@ -11,18 +11,22 @@ export const NavbarMenu = [
     },
     {
         id: 3,
+        title: 'Applied',
+        link: '/MyApplications',
+    },
+    {
+        id: 4,
         title: 'Projects',
         link: '#',
     },
     {
-        id: 4,
+        id: 5,
         title: 'Faq',
         link: '#',
     },
-     {
-        id: 4,
+    {
+        id: 6,
         title: 'Login',
         link: '/login',
     },
-   
 ]
