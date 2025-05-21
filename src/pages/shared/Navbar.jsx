@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { NavbarMenu } from '../data/navData'
-import { AnimatePresence,motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 
 import logo from '../../assets/images/pngegg.png'
 import { Link } from 'react-router-dom'
@@ -26,18 +26,18 @@ const Navbar = () => {
                     <ul className=" hidden md:flex items-center gap-6 text-gray-600">
                         {NavbarMenu.map((menu, id) => {
                             return (
-                                <li className='text-white font-bold' key={id}>
+                                <li className="text-white font-bold" key={id}>
                                     <a href={menu.link}>
                                         {id === NavbarMenu.length - 1 ? (
                                             user ? (
                                                 <button
-                                                    className="cursor-pointer"
+                                                    className=" bg-blue-600  py-2 px-3 rounded-md cursor-pointer"
                                                     onClick={handleLogout}
                                                 >
                                                     Logout
                                                 </button>
                                             ) : (
-                                                <button className="cursor-pointer">
+                                                <button className="bg-blue-600  py-2 px-3 rounded-md cursor-pointer">
                                                     Login
                                                 </button>
                                             )
