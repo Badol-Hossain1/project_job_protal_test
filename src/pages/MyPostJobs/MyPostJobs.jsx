@@ -9,7 +9,7 @@ const MyPostJobs = () => {
     console.log('🚀 ~ MyPostJobs ~ user:', user.email)
     useEffect(() => {
         fetch(
-            `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jobs?email=${user.email}`
+            `https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/jobs?email=${user.email}`
         )
             .then((res) => res.json())
             .then((data) => setJobs(data))

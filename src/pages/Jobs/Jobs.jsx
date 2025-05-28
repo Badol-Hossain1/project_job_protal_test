@@ -10,7 +10,7 @@ const Jobs = () => {
 
     useEffect(() => {
         fetch(
-            'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jobs'
+            'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/jobs'
         )
             .then((res) => res.json())
             .then((data) => setJobs(data))

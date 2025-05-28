@@ -16,7 +16,7 @@ const MyApplication = () => {
         //     .catch((err) => console.log(err))
         axios
             .get(
-                `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/job-application?email=${user.email}`,
+                `https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/job-application?email=${user.email}`,
                 {
                     withCredentials: true,
                 }

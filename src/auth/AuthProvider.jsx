@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
                 const currentUser = { email: user?.email }
                 axios
                     .post(
-                        'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jwt',
+                        'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/jwt',
                         currentUser,
                         {
                             withCredentials: true,
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
             } else {
                 axios
                     .post(
-                        'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/logout',
+                        'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/logout',
                         {},
                         {
                             withCredentials: true,

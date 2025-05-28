@@ -13,7 +13,7 @@ const AddJob = () => {
         newJob.responsibilities = newJob.responsibilities.split('\n')
 
         fetch(
-            'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jobs',
+            'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/jobs',
             {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
