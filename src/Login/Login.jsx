@@ -3,6 +3,7 @@ import logo from '../assets/images/logo.json'
 import { useContext } from 'react'
 import { AuthContext } from '../auth/AuthProvider'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Login = () => {
     const { Login } = useContext(AuthContext)
@@ -12,14 +13,19 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const data = new FormData(e.target)
-        const name = data.get('email')
-        console.log('🚀 ~ handleSubmit ~ name:', name)
+        const email = data.get('email')
+        console.log('🚀 ~ handleSubmit ~ name:', email)
         const password = data.get('password')
         console.log('🚀 ~ handleSubmit ~ password:', password)
-        Login(name, password)
+        Login(email, password)
             .then((res) => {
-                console.log(res)
-                navigate(form)
+                console.log(res.user?.email)
+                const user = {email: res.user?.email}
+                // navigate(form)
+                axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
+                .then(data => {
+                    console.log('data',data?.data)
+                })
             })
             .catch((err) => {
                 console.log(err)

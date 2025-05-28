@@ -4,6 +4,22 @@ import { Link, useLoaderData } from 'react-router-dom'
 const ViewApply = () => {
     const data = useLoaderData()
     console.log('🚀 ~ ViewApply ~ data:', data)
+    const handleChange = (e, id) => {
+        const data = {
+            status: e.target.value,
+        }
+        fetch(`http://localhost:5000/job-applications/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
+    }
     return (
         <div>
             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
@@ -24,7 +40,25 @@ const ViewApply = () => {
                                     <th>{job.applicant_email}</th>
                                     <td>{job.Linkedin}</td>
                                     <td>{job.Github}</td>
-                                    <td>{job.Facebook}</td>
+
+                                    <td>
+                                        <select
+                                            onChange={(e) =>
+                                                handleChange(e, job._id)
+                                            }
+                                            defaultValue={
+                                                job.status || 'change status'
+                                            }
+                                            className="select select-lg"
+                                        >
+                                            <option disabled>
+                                                change status
+                                            </option>
+                                            <option>selected</option>
+                                            <option>rejected</option>
+                                            <option>under review</option>
+                                        </select>
+                                    </td>
                                 </tr>
                             )
                         })}

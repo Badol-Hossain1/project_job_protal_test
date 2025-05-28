@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../auth/AuthProvider'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 
 const MyApplication = () => {
     const [applyJobs, setApplyJobs] = useState([])
@@ -9,10 +10,15 @@ const MyApplication = () => {
 
     useEffect(() => {
         if (!user?.email) return
-        fetch(`http://localhost:5000/job-application?email=${user.email}`)
-            .then((res) => res.json())
-            .then((data) => setApplyJobs(data))
-            .catch((err) => console.log(err))
+        // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+        //     .then((res) => res.json())
+        //     .then((data) => setApplyJobs(data))
+        //     .catch((err) => console.log(err))
+        axios
+            .get(`http://localhost:5000/job-application?email=${user.email}`, {
+                withCredentials: true,
+            })
+            .then((res) => setApplyJobs(res.data))
     }, [user.email])
 
     const handleDelete = async (id) => {
@@ -24,7 +30,7 @@ const MyApplication = () => {
                 method: 'DELETE',
             }
         )
-        console.log("🚀 ~ handleDelete ~ res:", res)
+        console.log('🚀 ~ handleDelete ~ res:', res)
         const data = await res.json()
         if (data.deletedCount > 0) {
             Swal.fire({
