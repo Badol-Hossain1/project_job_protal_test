@@ -21,7 +21,7 @@ const Login = () => {
             .then((res) => {
                 console.log(res.user?.email)
                 const user = { email: res.user?.email }
-                // navigate(form)
+                navigate(form)
                 axios
                     .post(
                         'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/jwt',
