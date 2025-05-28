@@ -15,9 +15,12 @@ const MyApplication = () => {
         //     .then((data) => setApplyJobs(data))
         //     .catch((err) => console.log(err))
         axios
-            .get(`http://localhost:5000/job-application?email=${user.email}`, {
-                withCredentials: true,
-            })
+            .get(
+                `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/job-application?email=${user.email}`,
+                {
+                    withCredentials: true,
+                }
+            )
             .then((res) => setApplyJobs(res.data))
     }, [user.email])
 

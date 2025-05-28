@@ -8,7 +8,9 @@ const MyPostJobs = () => {
     const { user } = useContext(AuthContext)
     console.log('🚀 ~ MyPostJobs ~ user:', user.email)
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs?email=${user.email}`)
+        fetch(
+            `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jobs?email=${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => setJobs(data))
     }, [user.email])
@@ -32,13 +34,14 @@ const MyPostJobs = () => {
                                     <th>{job.title}</th>
                                     <td>{job.jobType}</td>
                                     <td>{job.company_name}</td>
+                                    <td>{job.applicationDeadline}</td>
                                     <td>
-                                        {
-                                            job.applicationDeadline
-                                        }
-                                    </td>
-                                    <td>
-                                        <Link to={`/viewApplications/${job._id}`} > view </Link>
+                                        <Link
+                                            to={`/viewApplications/${job._id}`}
+                                        >
+                                            {' '}
+                                            view{' '}
+                                        </Link>
                                     </td>
                                 </tr>
                             )

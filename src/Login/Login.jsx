@@ -20,12 +20,17 @@ const Login = () => {
         Login(email, password)
             .then((res) => {
                 console.log(res.user?.email)
-                const user = {email: res.user?.email}
+                const user = { email: res.user?.email }
                 // navigate(form)
-                axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
-                .then(data => {
-                    console.log('data',data?.data)
-                })
+                axios
+                    .post(
+                        'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jwt',
+                        user,
+                        { withCredentials: true }
+                    )
+                    .then((data) => {
+                        console.log('data', data?.data)
+                    })
             })
             .catch((err) => {
                 console.log(err)
@@ -57,9 +62,14 @@ const Login = () => {
                                 name="password"
                                 placeholder="Password"
                             />
-                            <div className=''>
+                            <div className="">
                                 don't have an account
-                                <Link className='ml-4 font-bold text-red-400' to="/signup">Sign up</Link>
+                                <Link
+                                    className="ml-4 font-bold text-red-400"
+                                    to="/signup"
+                                >
+                                    Sign up
+                                </Link>
                             </div>
                             <button className="btn btn-neutral mt-4">
                                 Login

@@ -29,9 +29,11 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/jobs/${params.id}`),
+                    fetch(
+                        `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jobs/${params.id}`
+                    ),
             },
-             {
+            {
                 path: '/viewApplications/:job_id',
                 element: (
                     <PrivateRoute>
@@ -40,7 +42,9 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`),
+                    fetch(
+                        `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/job-applications/jobs/${params.job_id}`
+                    ),
             },
 
             {

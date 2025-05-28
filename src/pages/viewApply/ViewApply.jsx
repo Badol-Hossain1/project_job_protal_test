@@ -8,13 +8,16 @@ const ViewApply = () => {
         const data = {
             status: e.target.value,
         }
-        fetch(`http://localhost:5000/job-applications/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
+        fetch(
+            `https://job-protal-server-h9tjtouty-badols-projects.vercel.app/job-applications/${id}`,
+            {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)

@@ -5,9 +5,9 @@ import Swal from 'sweetalert2'
 
 const JobApply = () => {
     const { id } = useParams()
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-    // console.log("🚀 ~ JobApply ~ user:", user) 
+    // console.log("🚀 ~ JobApply ~ user:", user)
     const handleApply = (e) => {
         e.preventDefault()
         const From = new FormData(e.target)
@@ -16,29 +16,30 @@ const JobApply = () => {
         const Linkedin = From.get('Linkedin')
         // console.log(Facebook, Github, Linkedin)
         const jobApplication = {
-            job_id:id,
+            job_id: id,
             applicant_email: user.email,
             Linkedin,
             Github,
-            Facebook
+            Facebook,
         }
-        fetch('http://localhost:5000/job-applications',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
-            },
-            body: JSON.stringify(jobApplication)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-                Swal.fire("successfully apply");
-                navigate('/')
-
+        fetch(
+            'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/job-applications',
+            {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(jobApplication),
             }
-        })
-        .catch(err => console.log(err))
-        
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    Swal.fire('successfully apply')
+                    navigate('/')
+                }
+            })
+            .catch((err) => console.log(err))
     }
     return (
         <div className="hero bg-base-200 min-h-screen">

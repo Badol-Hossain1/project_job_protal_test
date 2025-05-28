@@ -43,9 +43,13 @@ const AuthProvider = ({ children }) => {
             if (user?.email) {
                 const currentUser = { email: user?.email }
                 axios
-                    .post('http://localhost:5000/jwt', currentUser, {
-                        withCredentials: true,
-                    })
+                    .post(
+                        'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jwt',
+                        currentUser,
+                        {
+                            withCredentials: true,
+                        }
+                    )
                     .then((res) => {
                         setLoading(false)
                         console.log('login ', res.data)
@@ -53,7 +57,7 @@ const AuthProvider = ({ children }) => {
             } else {
                 axios
                     .post(
-                        'http://localhost:5000/logout',
+                        'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/logout',
                         {},
                         {
                             withCredentials: true,

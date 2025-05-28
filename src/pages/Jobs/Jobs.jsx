@@ -9,7 +9,9 @@ const Jobs = () => {
     const visibleJobs = showAll ? jobs : jobs.slice(0, 9)
 
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch(
+            'https://job-protal-server-h9tjtouty-badols-projects.vercel.app/jobs'
+        )
             .then((res) => res.json())
             .then((data) => setJobs(data))
     })
@@ -19,8 +21,14 @@ const Jobs = () => {
                 return (
                     <div className="card text-black  w-full bg-gray-700 shadow-sm">
                         <div className="flex justify-around items-center font-bold w-full ">
-                            <span className='text-white'>{job.applicationDeadline}</span>
-                            <img className='w-20' src={`${job.company_logo}`} alt="Shoes" />
+                            <span className="text-white">
+                                {job.applicationDeadline}
+                            </span>
+                            <img
+                                className="w-20"
+                                src={`${job.company_logo}`}
+                                alt="Shoes"
+                            />
                             <span className="text-white">{job.jobType}</span>
                         </div>
                         <div className="card-body">
