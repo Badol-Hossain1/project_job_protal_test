@@ -23,7 +23,7 @@ const JobApply = () => {
             Facebook,
         }
         fetch(
-            'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/job-applications',
+            'https://job-protal-server-steel.vercel.app/jobs/job-applications',
             {
                 method: 'POST',
                 headers: {

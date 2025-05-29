@@ -9,9 +9,7 @@ const Jobs = () => {
     const visibleJobs = showAll ? jobs : jobs.slice(0, 9)
 
     useEffect(() => {
-        fetch(
-            'https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/jobs'
-        )
+        fetch('https://job-protal-server-steel.vercel.app/jobs')
             .then((res) => res.json())
             .then((data) => setJobs(data))
     })

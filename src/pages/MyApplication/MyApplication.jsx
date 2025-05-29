@@ -10,13 +10,13 @@ const MyApplication = () => {
 
     useEffect(() => {
         if (!user?.email) return
-        // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+        // fetch(`https://job-protal-server-steel.vercel.app/jobs/job-application?email=${user.email}`)
         //     .then((res) => res.json())
         //     .then((data) => setApplyJobs(data))
         //     .catch((err) => console.log(err))
         axios
             .get(
-                `https://job-protal-server-qp0eixdxe-badols-projects.vercel.app/job-application?email=${user.email}`,
+                `https://job-protal-server-steel.vercel.app/job-application?email=${user.email}`,
                 {
                     withCredentials: true,
                 }
@@ -28,7 +28,7 @@ const MyApplication = () => {
         console.log(id)
 
         const res = await fetch(
-            `http://localhost:5000/job-applications/${id}`,
+            `https://job-protal-server-steel.vercel.app/jobs/job-applications/${id}`,
             {
                 method: 'DELETE',
             }
