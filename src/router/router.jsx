@@ -30,7 +30,7 @@ const router = createBrowserRouter([
                 ),
                 loader: ({ params }) =>
                     fetch(
-                        `https://job-protal-server-steel.vercel.app/jobs/jobs/${params.id}`
+                        `https://job-protal-server-badols-projects.vercel.app/jobs/jobs/${params.id}`
                     ),
             },
             {
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
                 ),
                 loader: ({ params }) =>
                     fetch(
-                        `https://job-protal-server-steel.vercel.app/jobs/job-applications/jobs/${params.job_id}`
+                        `https://job-protal-server-badols-projects.vercel.app/jobs/job-applications/jobs/${params.job_id}`
                     ),
             },
 

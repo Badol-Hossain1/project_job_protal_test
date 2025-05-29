@@ -9,7 +9,7 @@ const ViewApply = () => {
             status: e.target.value,
         }
         fetch(
-            `https://job-protal-server-steel.vercel.app/jobs/job-applications/${id}`,
+            `https://job-protal-server-badols-projects.vercel.app/jobs/job-applications/${id}`,
             {
                 method: 'PATCH',
                 headers: {

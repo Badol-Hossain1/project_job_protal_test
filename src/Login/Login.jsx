@@ -24,7 +24,7 @@ const Login = () => {
                 navigate(form)
                 axios
                     .post(
-                        'https://job-protal-server-steel.vercel.app/jobs/jwt',
+                        'https://job-protal-server-badols-projects.vercel.app/jwt',
                         user,
                         {
                             withCredentials: true,

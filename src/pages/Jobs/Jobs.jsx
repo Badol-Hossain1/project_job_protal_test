@@ -9,15 +9,18 @@ const Jobs = () => {
     const visibleJobs = showAll ? jobs : jobs.slice(0, 9)
 
     useEffect(() => {
-        fetch('https://job-protal-server-steel.vercel.app/jobs')
+        fetch('https://job-protal-server-badols-projects.vercel.app/jobs')
             .then((res) => res.json())
             .then((data) => setJobs(data))
     })
     return (
         <div className="grid relative md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
-            {visibleJobs.map((job) => {
+            {visibleJobs.map((job, id) => {
                 return (
-                    <div className="card text-black  w-full bg-gray-700 shadow-sm">
+                    <div
+                        key={id}
+                        className="card text-black  w-full bg-gray-700 shadow-sm"
+                    >
                         <div className="flex justify-around items-center font-bold w-full ">
                             <span className="text-white">
                                 {job.applicationDeadline}
@@ -35,9 +38,12 @@ const Jobs = () => {
                             </h2>
                             <p className="text-white">{job.location}</p>
                             <div className="flex md:flex-row flex-col">
-                                {job.requirements.map((requirement) => {
+                                {job.requirements.map((requirement, id) => {
                                     return (
-                                        <li className="border py-2 px-3 bg-green-300 text-black rounded-3xl hover:bg-green-400 list-none">
+                                        <li
+                                            key={id}
+                                            className="border py-2 px-3 bg-green-300 text-black rounded-3xl hover:bg-green-400 list-none"
+                                        >
                                             {requirement}
                                         </li>
                                     )

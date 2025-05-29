@@ -12,11 +12,14 @@ const AddJob = () => {
         newJob.requirements = newJob.requirements.split('\n')
         newJob.responsibilities = newJob.responsibilities.split('\n')
 
-        fetch('https://job-protal-server-steel.vercel.app/jobs/jobs', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(newJob),
-        })
+        fetch(
+            'https://job-protal-server-badols-projects.vercel.app/jobs/jobs',
+            {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(newJob),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)

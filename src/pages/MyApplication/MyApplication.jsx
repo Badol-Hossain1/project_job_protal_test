@@ -10,13 +10,13 @@ const MyApplication = () => {
 
     useEffect(() => {
         if (!user?.email) return
-        // fetch(`https://job-protal-server-steel.vercel.app/jobs/job-application?email=${user.email}`)
+        // fetch(`https://job-protal-server-badols-projects.vercel.app/jobs/job-application?email=${user.email}`)
         //     .then((res) => res.json())
         //     .then((data) => setApplyJobs(data))
         //     .catch((err) => console.log(err))
         axios
             .get(
-                `https://job-protal-server-steel.vercel.app/job-application?email=${user.email}`,
+                `https://job-protal-server-badols-projects.vercel.app/job-application?email=${user.email}`,
                 {
                     withCredentials: true,
                 }
@@ -28,7 +28,7 @@ const MyApplication = () => {
         console.log(id)
 
         const res = await fetch(
-            `https://job-protal-server-steel.vercel.app/jobs/job-applications/${id}`,
+            `https://job-protal-server-badols-projects.vercel.app/job-applications/${id}`,
             {
                 method: 'DELETE',
             }
@@ -47,8 +47,8 @@ const MyApplication = () => {
     }
 
     return (
-        <div className="h-screen">
-            <div className="overflow-x-auto">
+        <div className="h-screen overflow-x-auto">
+            <div className="">
                 <table className="table">
                     {/* head */}
                     <thead>
